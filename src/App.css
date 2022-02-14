@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+
+.list {
+  max-height: 80vh;
+  overflow: auto;
+  height: 100%;
+}
