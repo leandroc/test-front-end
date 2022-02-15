@@ -1,21 +1,20 @@
 import React from "react";
 
-import { useUserSearch } from "./useUserSearch";
+import { UserSearchProvider } from "./contexts/UserSearch";
 
+import { Header } from "./Header";
 import { Main } from "./Main";
 
 import "./App.css";
 
 function App() {
-  const { status, data, fuse } = useUserSearch();
-
   return (
     <main className="App">
-      <header>
-        <h1>User search</h1>
-      </header>
+      <Header />
 
-      {status === "LOADING" ? "Loading application..." : <Main fuse={fuse} />}
+      <UserSearchProvider>
+        <Main />
+      </UserSearchProvider>
     </main>
   );
 }

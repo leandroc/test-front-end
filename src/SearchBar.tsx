@@ -1,37 +1,54 @@
 import React from "react";
 
+import styles from "./SearchBar.module.css";
+
 export type SearchBarProps = {
+  value?: string;
   disabled?: boolean;
-  onSubmit: (args: { searchTerm: string }) => void;
+  onChange: (args: string) => void;
 };
 
-const SearchBarComponent = ({ onSubmit, disabled = false }: SearchBarProps) => {
-  const [searchTerm, setSearchTerm] = React.useState("");
+export const SearchBar = ({
+  onChange,
+  value = "",
+  disabled = false,
+}: SearchBarProps) => {
+  // const [searchTerm, setSearchTerm] = React.useState(value);
 
-  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  // const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
 
-    onSubmit({ searchTerm });
-  };
+  //   onSubmit({ searchTerm });
+  // };
 
   return (
-    <form onSubmit={handleOnSubmit}>
-      <label htmlFor="searchTerm">Search by user name or age</label>
-      <input
-        id="searchTerm"
-        name="searchTerm"
-        type="search"
-        value={searchTerm}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          setSearchTerm(e.target.value);
-        }}
-      />
+    <form
+      className={styles.container}
+      // onSubmit={handleOnSubmit}
+      onSubmit={e => e.preventDefault()}
+    >
+      <label className={styles.input} htmlFor="searchTerm">
+        <input
+          id="searchTerm"
+          name="searchTerm"
+          type="search"
+          placeholder="Search by user name or age"
+          value={value}
+          disabled={disabled}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            onChange(e.target.value);
+          }}
+        />
+        <span>Search by user name or age</span>
+      </label>
 
-      <button type="submit" disabled={disabled}>
+      {/* <button
+        type="submit"
+        className={styles.button}
+        disabled={disabled || !searchTerm.length}
+      >
         Search
-      </button>
+      </button> */}
     </form>
   );
 };
-
-export const SearchBar = SearchBarComponent;

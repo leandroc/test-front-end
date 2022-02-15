@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from "react";
 
-import { fetchAllUsers } from "./fetchAllUsers";
+import { fetchAllUsers } from "../utils/fetchAllUsers";
 
 type UserSearch = Awaited<ReturnType<typeof fetchAllUsers>>;
 
@@ -22,26 +22,26 @@ type State =
       status: "LOADING";
       error: null;
       data: null;
-      fuse: null;
+      search: null;
     }
   | {
       status: "SUCCESS";
       error: null;
       data: UserSearch["data"];
-      fuse: UserSearch["fuse"];
+      search: UserSearch["search"];
     }
   | {
       status: "ERROR";
       error: Error;
       data: null;
-      fuse: null;
+      search: null;
     };
 
 const INITIAL_STATE: State = {
   status: "LOADING",
   error: null,
   data: null,
-  fuse: null,
+  search: null,
 };
 
 const reducer = (state: State, action: ActionType): State => {
@@ -61,7 +61,7 @@ const reducer = (state: State, action: ActionType): State => {
         status: "ERROR",
         error: action.payload,
         data: null,
-        fuse: null,
+        search: null,
       };
     }
 
@@ -75,7 +75,7 @@ const reducer = (state: State, action: ActionType): State => {
   }
 };
 
-export const useUserSearch = () => {
+export const useFetchUsers = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   const init = async () => {

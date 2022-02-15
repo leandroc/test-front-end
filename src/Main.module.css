@@ -1,0 +1,53 @@
+.container {
+  padding-right: 48px;
+  padding-left: 48px;
+  padding-bottom: 48px;
+
+  max-height: calc(100vh - 246px);
+}
+
+.label {
+  font-weight: bold;
+}
+
+.searchContainer {
+}
+
+.coisa {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.sortContainer {
+  flex-grow: 1;
+}
+
+.sortContainer label + label {
+  padding-left: 16px;
+}
+
+.sortContainer input {
+  margin-right: 8px;
+}
+
+.orderContainer {
+  margin-left: auto;
+}
+
+.orderContainer label {
+  position: relative;
+  cursor: pointer;
+}
+
+.orderContainer label:hover,
+.orderContainer label:focus-within {
+  font-weight: bold;
+}
+
+.orderContainer input {
+  position: absolute;
+  opacity: 0;
+}

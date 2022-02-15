@@ -1,0 +1,33 @@
+.container {
+  max-height: calc(100vh - 402px);
+  overflow: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%
+}
+
+.table thead {
+  border-bottom: 2px solid;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.table th:last-child,
+.table td:last-child {
+  text-align: right;
+}
+
+.table tr:nth-child(even) td {
+  background-color: #fafafa;
+}
+
+.table tr:hover td {
+  background-color: #f0f0f0;
+}
