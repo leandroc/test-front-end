@@ -2,6 +2,9 @@ import React from "react";
 
 import { useFetchUsers } from "../hooks/useFetchUsers";
 
+import { ErrorMessage } from "../components/ErrorMessage";
+import { Loading } from "../components/Loading";
+
 import { UserData } from "../types";
 
 const Context = React.createContext({});
@@ -25,9 +28,15 @@ export const UserSearchProvider = ({
         data,
       }}
     >
-      {status !== "LOADING" ? null : "Loading application..."}
-      {status !== "ERROR" ? null : "An error has ocurred"}
       {["LOADING", "ERROR"].includes(status) ? null : children}
+      {status !== "LOADING" ? null : <Loading>Loading application...</Loading>}
+      {status !== "ERROR" ? null : (
+        <ErrorMessage>
+          An error has ocurred!
+          <br />
+          Couldn't load the application
+        </ErrorMessage>
+      )}
     </Context.Provider>
   );
 };

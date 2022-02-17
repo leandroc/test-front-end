@@ -7,7 +7,7 @@ import {
   UserData,
   OrderType,
   SortByType,
-} from "./types";
+} from "../types";
 
 import styles from "./List.module.css";
 
@@ -69,27 +69,27 @@ export const List = ({
 
   return (
     <div className={styles.container}>
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-        </tr>
-      </thead>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {(list ?? []).map(({ item, positions, score }) => {
-          const newName = getMatchedString(item.name || "", [...positions]);
+        <tbody>
+          {(list ?? []).map(({ item, positions, score }) => {
+            const newName = getMatchedString(item.name || "", [...positions]);
 
-          return (
-            <tr key={`${score}__${item.name}__${item.age}`}>
-              <td>{newName}</td>
-              <td>{item.age}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+            return (
+              <tr key={`${score}__${item.name}__${item.age}`}>
+                <td>{newName}</td>
+                <td>{item.age}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };

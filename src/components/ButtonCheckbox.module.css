@@ -1,0 +1,14 @@
+.container {
+  position: relative;
+  cursor: pointer;
+}
+
+.container:hover,
+.container:focus-within {
+  font-weight: bold;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+}

@@ -1,0 +1,11 @@
+.container {
+  padding-right: 48px;
+  padding-left: 48px;
+  padding-bottom: 48px;
+
+  max-height: calc(100vh - 246px);
+}
+
+.label {
+  font-weight: bold;
+}

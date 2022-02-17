@@ -2,14 +2,15 @@ import React from "react";
 
 import { UserSearchProvider } from "./contexts/UserSearch";
 
-import { Header } from "./Header";
-import { Main } from "./Main";
+import { Header } from "./components/Header";
 
-import "./App.css";
+import { Main } from "./views/Main";
+
+import styles from "./App.module.css";
 
 function App() {
   return (
-    <main className="App">
+    <main className={styles.container}>
       <Header />
 
       <UserSearchProvider>

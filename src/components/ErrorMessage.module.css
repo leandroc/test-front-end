@@ -1,0 +1,14 @@
+.container {
+  color: var(--error-color);
+  font-weight: bold;
+  padding: calc(var(--spacing-unit) * 6) 0;
+  text-align: center;
+}
+
+.icon {
+  font-size: calc(var(--text-size) * 4);
+}
+
+.message {
+  padding-top: calc(var(--spacing-unit) * 2);
+}

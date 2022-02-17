@@ -1,0 +1,38 @@
+.input {
+  flex-grow: 1;
+  position: relative;
+}
+
+.input span {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.input input {
+  background-color: var(--input-background);
+  border: 0;
+  border-bottom-left-radius: var(--border-radius);
+
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+
+  display: block;
+  width: 100%;
+}
+
+.input span,
+.input input {
+  height: calc(var(--spacing-unit) * 5);
+  padding: 0;
+  padding-left: var(--spacing-unit);
+}
+
+.input input:placeholder-shown + span {
+  z-index: 1;
+}

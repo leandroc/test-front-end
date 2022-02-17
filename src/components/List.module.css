@@ -1,22 +1,27 @@
 .container {
-  max-height: calc(100vh - 402px);
+  max-height: calc(100vh - 402px); /* 100vh - (offsetHeight + (48 * 2)) */
   overflow: auto;
 }
 
 .table {
   border-collapse: collapse;
-  width: 100%
+  width: 100%;
 }
 
 .table thead {
-  border-bottom: 2px solid;
+  background-color: var(--app-background);
+  border-bottom: 2px solid var(--primary-color);
+
   text-align: left;
+
+  position: sticky;
+  top: 0;
 }
 
 .table th,
 .table td {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: var(--spacing-unit);
+  padding-bottom: var(--spacing-unit);
 }
 
 .table th:last-child,
